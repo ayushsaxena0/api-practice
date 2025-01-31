@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const PORT = 5000;
 
 const pokemon = {
@@ -34,6 +35,8 @@ const pokemon = {
   },
 };
 
+app.use(cors());
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
@@ -47,6 +50,6 @@ app.get("/api/:pokemon", (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is running. Listening on port ${PORT}`);
 });
