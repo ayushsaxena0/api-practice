@@ -38,7 +38,7 @@ const pokemon = {
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.get("/api/:pokemon", (req, res) => {
